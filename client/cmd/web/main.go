@@ -19,6 +19,7 @@ func main() {
 		log.Panic(err)
 	}
 }
+
 // arg t for template
 func render(w http.ResponseWriter, t string) {
 
@@ -43,7 +44,7 @@ func render(w http.ResponseWriter, t string) {
 		return
 	}
 
-	if err := tmpl.Execute(w, nil); err != nil {
+	if err := tmpl.Execute(w, nil); err != nil { // execute the template
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 	}
 }
